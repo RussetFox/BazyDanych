@@ -19,7 +19,7 @@ public class StockCategory {
     @Column(name = "id_kategorii")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "nazwa_kategorii", length = 64)
+    @Column(name = "nazwa_kategorii", length = 64, unique = true)
     private String categoryname;
 
     @OneToMany(mappedBy = "id", fetch = FetchType.EAGER)

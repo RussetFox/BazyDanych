@@ -19,11 +19,6 @@ public class StockServiceImpl implements StockService {
     private final StockCategoryRepository stockCategoryRepository;
 
     @Override
-    public List<StockCategory> getAllCategories() {
-        return null;
-    }
-
-    @Override
     public List<Stock> getAllStock() {
         return (List<Stock>) stockRepository.findAll();
     }
@@ -45,7 +40,9 @@ public class StockServiceImpl implements StockService {
     }
 
     @Override
-    public ResponseEntity<Stock> createStockItem(Stock stock) {
+    public ResponseEntity<Stock> createStockItem(Stock stock, String stockCategory) {
+        StockCategory category = stockCategoryRepository.findByCategoryname(stockCategory);
+        stock.setCategory(category);
         Stock savedStock = stockRepository.save(stock);
         return ResponseEntity.ok(savedStock);
     }

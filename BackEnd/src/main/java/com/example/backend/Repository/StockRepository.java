@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StockRepository extends CrudRepository<Stock, Integer> {
+    Stock findByStockName(String stockName);
 }

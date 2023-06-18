@@ -18,7 +18,7 @@ public class Stock {
     @Column(name = "id_towaru")
     private Integer id;
 
-    @Column(name = "nazwa_towaru", length = 128)
+    @Column(name = "nazwa_towaru", length = 128, nullable = false)
     private String stockName;
 
     @Column(name = "ilosc_towaru")
